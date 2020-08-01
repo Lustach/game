@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button @click="play"><span v-if="this.range.length===0">Start</span><span v-else>Restart</span></button>
+    <button @click="play"><span v-if="this.range.length===0 || gameOver">Start</span><span v-else>Restart</span></button>
     <div id="level">Simon level: <span>{{range.length}}</span></div>
     <div id="pie" ref="pie">
       <div :class="{'disabled': disabled, '': !disabled}" @click="tapBtn($event.target.id)" class="piece" id="1"></div>
@@ -51,7 +51,6 @@ export default {
 				this.disabled = true
 			} else if (this.range[this.clickValue - 1] != e) {
 				this.gameOver = true
-				this.range = []
 				this.disabled = true
 				this.disableOptions=false
 			}
