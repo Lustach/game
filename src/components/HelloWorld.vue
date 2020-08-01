@@ -1,6 +1,5 @@
 <template>
   <div>
-    {{disabled}}
     <button @click="play"><span v-if="this.range.length===0">Start</span><span v-else>Restart</span></button>
     <div id="level">Simon level: <span>{{range.length}}</span></div>
     <div id="pie" ref="pie">
